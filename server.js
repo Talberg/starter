@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-mongoose.connect(process.env.REDIS_URL || "mongodb://localhost/react-auth-simple", { useNewUrlParser: true }, function(err) {
+mongoose.connect(process.env.DB || "mongodb://localhost/react-auth-simple", { useNewUrlParser: true }, function(err) {
     if (err) throw err;
     console.log(`mongoose connection successful`.yellow);
     app.listen(PORT, (err)=> {
@@ -38,6 +38,9 @@ mongoose.connect(process.env.REDIS_URL || "mongodb://localhost/react-auth-simple
         console.log(`connected on port ${PORT}`.cyan)
     });
 });
+
+
+
 
 
 
